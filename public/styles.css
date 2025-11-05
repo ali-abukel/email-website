@@ -26,12 +26,12 @@ h1, h2 {
   margin-top: 10px;
 }
 
-ul {
+ul.list {
   list-style: none;
   padding: 0;
 }
 
-ul li {
+ul.list li {
   padding: 8px 0;
   border-bottom: 1px solid #eee;
 }
@@ -45,7 +45,15 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+.input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
   padding: 10px 16px;
   border: none;
   background: #0b74de;
@@ -54,16 +62,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   background: #095bb5;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 #status {
