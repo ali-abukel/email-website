@@ -1,44 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Admin - Posteingang</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt – Ali Abukel</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="container">
-    <h1>Admin: Posteingang</h1>
-    <p>Gib dein Admin-Token ein, um die letzten Nachrichten vom IMAP-Postfach abzurufen.</p>
-    <label>
-      Admin-Token
-      <input id="token" type="password" />
-    </label>
-    <button id="load">Nachrichten laden</button>
-    <div id="status"></div>
-    <ul id="list"></ul>
+    <h1>Kontakt</h1>
+    <p>Schreibe mir eine Nachricht — ich antworte per E-Mail.</p>
+    <form id="contactForm" class="form">
+      <label>
+        Name
+        <input type="text" name="name" class="input">
+      </label>
+      <label>
+        Deine E-Mail *
+        <input type="email" name="email" required class="input">
+      </label>
+      <label>
+        Betreff
+        <input type="text" name="subject" class="input">
+      </label>
+      <label>
+        Nachricht *
+        <textarea name="message" rows="6" required class="input"></textarea>
+      </label>
+      <button type="submit" class="btn">Absenden</button>
+      <div id="status"></div>
+    </form>
   </main>
 
   <script>
-    document.getElementById('load').addEventListener('click', async () => {
-      const token = document.getElementById('token').value.trim();
-      if (!token) { alert('Bitte Token eingeben'); return; }
-      document.getElementById('status').textContent = 'Lade...';
-      const res = await fetch('/messages', { headers: { 'x-admin-token': token }});
-      const json = await res.json();
-      if (!res.ok) {
-        document.getElementById('status').textContent = 'Fehler: ' + (json.error || res.statusText);
-        return;
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Sende...';
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch('/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (res.ok) {
+          status.textContent = 'Danke — Nachricht gesendet.';
+          form.reset();
+        } else {
+          status.textContent = 'Fehler: ' + (json.error || res.statusText);
+        }
+      } catch (err) {
+        status.textContent = 'Netzwerkfehler';
       }
-      document.getElementById('status').textContent = '';
-      const ul = document.getElementById('list');
-      ul.innerHTML = '';
-      (json.messages || []).forEach(m => {
-        const li = document.createElement('li');
-        li.innerHTML = '<strong>' + (m.subject || '(kein Betreff)') + '</strong><br/>' +
-                       '<em>Von: ' + (m.from || '') + ' — ' + (new Date(m.date)).toLocaleString() + '</em>';
-        ul.appendChild(li);
-      });
     });
   </script>
 </body>
