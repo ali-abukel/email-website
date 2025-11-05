@@ -47,4 +47,11 @@ app.post('/send', async (req, res) => {
   }
 });
 
-// Root-Domain oder andere stat
+// Root-Seite
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Port starten
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server läuft auf Port ${port}`));
