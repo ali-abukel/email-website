@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Statische Dateien aus /public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // SMTP transporter
@@ -35,23 +37,4 @@ app.post('/send', async (req, res) => {
       to: process.env.MAIL_TO,
       subject: subject || `Kontaktformular: Nachricht von ${name || email}`,
       text: `Von: ${name || 'Unbekannt'} <${email}>\n\n${message}`,
-      html: `<p><strong>Von:</strong> ${name || 'Unbekannt'} &lt;${email}&gt;</p><hr/><p>${message.replace(/\n/g,'<br/>')}</p>`
-    };
-
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Mail gesendet:', info.messageId);
-    res.json({ ok: true, messageId: info.messageId });
-  } catch (err) {
-    console.error('Mailfehler', err);
-    res.status(500).json({ error: 'Fehler beim Versenden der Mail' });
-  }
-});
-
-// Root-Seite
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Port starten
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server läuft auf Port ${port}`));
+      html:
