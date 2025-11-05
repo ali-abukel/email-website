@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt - Meine E-Mail Seite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Kontakt</h1>
+    <p>Schreibe mir eine Nachricht — ich antworte per E-Mail.</p>
+    <form id="contactForm">
+      <label>
+        Name
+        <input type="text" name="name" />
+      </label>
+      <label>
+        Deine E-Mail *
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Betreff
+        <input type="text" name="subject" />
+      </label>
+      <label>
+        Nachricht *
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit">Absenden</button>
+      <div id="status"></div>
+    </form>
+
+    <hr/>
+    <p><a href="/admin.html">Admin: Posteingang ansehen</a></p>
+  </main>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Sende...';
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch('/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (res.ok) {
+          status.textContent = 'Danke — Nachricht gesendet.';
+          form.reset();
+        } else {
+          status.textContent = 'Fehler: ' + (json.error || res.statusText);
+        }
+      } catch (err) {
+        status.textContent = 'Netzwerkfehler';
+      }
+    });
+  </script>
+</body>
+</html>
