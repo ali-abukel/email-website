@@ -9,12 +9,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Statische Dateien aus /public bereitstellen (Wichtig für styles.css)
+// Statische Dateien aus /public bereitstellen
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 // ----------------------------------------------------------------
-// **ROBUSTE PRÜFUNG DER SMTP-VARIABLEN BEIM START (Fehlervermeidung 502)**
+// **ROBUSTE PRÜFUNG DER SMTP-VARIABLEN (FEHLERVERMEIDUNG 502)**
 // ----------------------------------------------------------------
 const requiredEnvVars = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'];
 requiredEnvVars.forEach(key => {
@@ -36,9 +36,6 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Healthcheck
-app.get('/health', (req, res) => res.send('ok'));
-
 // Root-Seite zeigt index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -46,7 +43,6 @@ app.get('/', (req, res) => {
 
 // Kontaktformular senden
 app.post('/send', async (req, res) => {
-  // ... (Die Logik zum Senden der Mail bleibt hier unverändert) ...
   try {
     const { name, email, subject, message } = req.body;
     if (!email || !message) return res.status(400).json({ error: 'Fehlende Felder' });
