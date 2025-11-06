@@ -12,7 +12,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
 
   // Status: Sende Nachricht
   responseText.textContent = "Sende Nachricht...";
-  responseText.style.color = "#ffff66"; // helles Gelb für Sichtbarkeit
+  responseText.style.color = "#A24C78"; // Magenta
 
   try {
     const res = await fetch("/send", {
@@ -24,14 +24,14 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     const result = await res.json();
     if (result.ok) {
       responseText.textContent = "✅ Nachricht erfolgreich gesendet!";
-      responseText.style.color = "#00ff88"; // Neon-Grün passend zum Design
+      responseText.style.color = "#D6C26A"; // Gold
       form.reset();
     } else {
       responseText.textContent = "❌ Fehler beim Senden.";
-      responseText.style.color = "#ff4d4d"; // Rot für Fehler
+      responseText.style.color = "#A24C78"; // Magenta
     }
   } catch (err) {
     responseText.textContent = "⚠️ Netzwerk- oder Serverfehler.";
-    responseText.style.color = "#ffa500"; // Orange für Serverfehler
+    responseText.style.color = "#A24C78"; // Magenta
   }
 });
