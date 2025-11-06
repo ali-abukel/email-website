@@ -55,9 +55,27 @@ body {
   margin: 20px 0 10px;
   font-weight: 700;
 }
+
+/* Standard-Absätze */
 .hero p {
   font-size: 1.2rem;
   opacity: 0.9;
+}
+
+/* NEU: Wichtige Zeilen stärker hervorheben (Subtitel wie "Bewerbung Praktikum") */
+.hero-content .subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent); /* Betont die Rolle und den Zweck */
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  margin-bottom: 5px;
+  opacity: 1; /* Volle Sichtbarkeit */
+}
+
+.hero-content p:last-of-type { /* Die Tech-Stack Zeile */
+  font-size: 1rem;
+  margin-top: 5px;
+  opacity: 0.7;
 }
 
 /* ====== CONTAINERS ====== */
