@@ -55,5 +55,11 @@ app.get('/', (req, res) => {
 });
 
 // Port starten
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server läuft auf Port ${port}`));
+// ----------------------------------------------------------------
+// **Korrektur für Render: explizites Binden an die Host-Adresse '0.0.0.0'**
+// ----------------------------------------------------------------
+const port = process.env.PORT || 10000; 
+
+app.listen(port, '0.0.0.0', () => { // Hinzugefügt: '0.0.0.0'
+  console.log(`Server läuft auf Host 0.0.0.0 und Port ${port}`);
+});
