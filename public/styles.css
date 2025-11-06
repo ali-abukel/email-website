@@ -16,7 +16,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #121212, #0A0A0A); /* Leichter Gradient für Tiefe */
+  background: linear-gradient(135deg, #121212, #0A0A0A); 
   color: var(--text);
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -40,7 +40,7 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* ... (Restliche .hero-Styles) ... */
+
 .hero-content img {
   width: 170px;
   border-radius: 50%;
@@ -48,12 +48,10 @@ body {
   box-shadow: 0 0 25px var(--primary); 
   transition: transform 0.4s ease;
 }
-/* ... (weitere hero-styles) ... */
-
 
 /* ====== CONTAINERS (FLIESSENDES LAYOUT) ====== */
 .container {
-  max-width: 1200px; /* Breiter */
+  max-width: 1200px; 
   margin: 50px auto;
   
   /* HINTERGRUND LEICHT TRANSPARENT */
@@ -68,15 +66,11 @@ body {
   position: relative;
   z-index: 1; 
 }
-.container:hover {
-  transform: translateY(0); 
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4); 
-}
 h2 {
     color: var(--primary); 
     font-weight: 700;
     margin-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3); /* Dezente Unterteilung */
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3); 
     padding-bottom: 10px;
 }
 
@@ -87,7 +81,10 @@ h2 {
   color: var(--bg); 
   padding: 12px 25px;
   border-radius: 40px;
-  /* ... (Rest der Button-Styles) ... */
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px var(--accent);
 }
 
 /* ====== PROJECTS ====== */
@@ -116,4 +113,27 @@ h2 {
   padding-bottom: 5px;
   margin-top: 0;
 }
-/* ... (Der Rest der styles.css bleibt gleich) ... */
+
+/* ====== LINKS ====== */
+.links a {
+  background: linear-gradient(90deg, var(--highlight), var(--accent)); 
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: 10px;
+  /* ... (Rest der Link-Styles) ... */
+}
+
+/* ====== FADE-IN EFFECT und FOOTER bleiben unverändert ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9em;
+  color: var(--primary); 
+  background: #0D0D0D; 
+  border-top: 5px solid var(--accent); 
+}
