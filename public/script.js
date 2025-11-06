@@ -11,7 +11,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
   };
 
   responseText.textContent = "Sende Nachricht...";
-  responseText.style.color = "#ccc";
+  responseText.style.color = "#004c00";
 
   try {
     const res = await fetch("/send", {
