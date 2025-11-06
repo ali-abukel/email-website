@@ -12,11 +12,27 @@ app.use(express.urlencoded({ extended: true }));
 // Statische Dateien aus /public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ----------------------------------------------------------------
+// **ROBUSTE PRÜFUNG DER SMTP-VARIABLEN BEIM START**
+// Dies hilft, 502 Bad Gateway Fehler durch fehlende Env-Variablen zu vermeiden.
+// ----------------------------------------------------------------
+const requiredEnvVars = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'];
+requiredEnvVars.forEach(key => {
+    if (!process.env[key]) {
+        console.error(`ERROR: Kritische Umgebungsvariable fehlt: ${key}. Bitte in Render setzen!`);
+        // Optional: Hier könnte man process.exit(1) aufrufen, um einen klaren Absturz zu erzwingen
+        // anstatt einen stillen Fehler zu riskieren. Für den Moment lassen wir es laufen.
+    }
+});
+
+
 // SMTP transporter
+// Stelle sicher, dass SMTP_PORT als Zahl verarbeitet wird.
+const smtpPort = Number(process.env.SMTP_PORT) || 587;
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: Number(process.env.SMTP_PORT) === 465,
+  port: smtpPort,
+  secure: smtpPort === 465, // Ist true, wenn der Port 465 (SSL) ist
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
@@ -26,11 +42,17 @@ const transporter = nodemailer.createTransport({
 // Healthcheck
 app.get('/health', (req, res) => res.send('ok'));
 
+// Root-Seite zeigt index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Kontaktformular senden
 app.post('/send', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
     if (!email || !message) return res.status(400).json({ error: 'Fehlende Felder' });
+    if (!process.env.MAIL_TO || !process.env.SMTP_USER) return res.status(500).json({ error: 'Server nicht konfiguriert (MAIL_TO fehlt).' });
 
     const mailOptions = {
       from: `"Kontaktformular" <${process.env.SMTP_USER}>`,
@@ -44,19 +66,14 @@ app.post('/send', async (req, res) => {
     console.log('Mail gesendet:', info.messageId);
     res.json({ ok: true, messageId: info.messageId });
   } catch (err) {
-    console.error('Mailfehler', err);
-    res.status(500).json({ error: 'Fehler beim Versenden der Mail' });
+    console.error('Mailfehler:', err.message || err); // Nur die Nachricht loggen
+    res.status(500).json({ error: 'Fehler beim Versenden der Mail. (SMTP-Problem?)' });
   }
 });
 
-// Root-Seite zeigt index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
-// Port starten
 // ----------------------------------------------------------------
-// **Korrektur für Render: explizites Binden an die Host-Adresse '0.0.0.0'**
+// ✅ BEST PRACTICE FÜR CLOUD-DEPLOYMENTS (Fix für 502 Bad Gateway)
 // ----------------------------------------------------------------
 const port = process.env.PORT || 10000; 
 
