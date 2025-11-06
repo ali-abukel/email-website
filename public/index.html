@@ -1,75 +1,125 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Abukel – Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-content">
-      <img src="images/ali.jpg" alt="Ali Abukel" class="profile-pic">
-      <div>
-        <h1>Ali Abukel</h1>
-        <p>Fachinformatiker für Anwendungsentwicklung | Java • Python • Linux • KI</p>
-        <a href="#about" class="btn">Mehr über mich</a>
-      </div>
-    </div>
-  </header>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-  <section id="about" class="container fade-in">
-    <h2>Über mich</h2>
-    <p>Ich bin Ali Abukel, Umschüler zum Fachinformatiker für Anwendungsentwicklung in Berlin. 
-    Zuvor arbeitete ich in der Ölindustrie und Stromerzeugung. 
-    Heute entwickle ich Software, KI-Lösungen und barrierefreie Apps, die Menschen helfen.</p>
-  </section>
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f4f7fb;
+  color: #333;
+  scroll-behavior: smooth;
+}
 
-  <section class="container fade-in">
-    <h2>Meine Projekte</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Projekt „Dinner“</h3>
-        <p>KI-gestützte App zur Planung von Dinner-Events für Gruppen mit Menüvorschlägen und Zeitplan.</p>
-      </div>
-      <div class="card">
-        <h3>Sprach-Assistent für Blinde</h3>
-        <p>Ein barrierefreies Tool, das gesprochene Briefe aufnimmt, aufschreibt und vorliest.</p>
-      </div>
-      <div class="card">
-        <h3>Netzwerksicherheit & Linux</h3>
-        <p>Erfahrung mit Serverhärtung, Shell-Scripting und Open-Source-Sicherheitstools.</p>
-      </div>
-    </div>
-  </section>
+/* HEADER / HERO */
+.hero {
+  background: linear-gradient(135deg, #0066ff, #8e2de2);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
 
-  <section class="container fade-in">
-    <h2>Links</h2>
-    <ul class="links">
-      <li><a href="https://github.com/aliabukel" target="_blank">GitHub</a></li>
-      <li><a href="https://gitlab.com/aliabukel" target="_blank">GitLab</a></li>
-      <li><a href="https://www.linkedin.com/in/aliabukel" target="_blank">LinkedIn</a></li>
-      <li><a href="mailto:aliabukel@icloud.com">E-Mail</a></li>
-      <li><a href="admin.html">Kontaktformular</a></li>
-    </ul>
-  </section>
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-  <footer>
-    <p>&copy; 2025 Ali Abukel – Alle Rechte vorbehalten</p>
-  </footer>
+.hero-content img {
+  width: 160px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
 
-  <script>
-    // sanfte Fade-in-Animation beim Scrollen
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1 };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
-</body>
-</html>
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* CONTAINERS */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: white;
+  color: #0066ff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #0066ff;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* PROJECT CARDS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  background: #f0f4ff;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+.links a {
+  background: #0066ff;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.links a:hover {
+  background: #004ecc;
+}
+
+/* FADE-IN ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
