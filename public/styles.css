@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-  /* Helle, bunte Farben für Energie und Modernität */
-  --primary: #4A90E2; /* Leuchtendes Blau */
-  --accent: #FFD700; /* Gold/Leuchtendes Gelb */
-  --highlight: #FF69B4; /* Pink/Magenta */
-  --bg: #FAFAFA; /* Sehr helles Grau */
-  --text: #1A202C; /* Dunkler Text für Kontrast */
-  --card-bg: #FFFFFF; /* Weiße, saubere Karten */
-  --glow: 0 0 25px rgba(74, 144, 226, 0.4); /* Blau-Glow */
-  --shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sanfter Schatten */
+  /* Moderne & Futuristische Palette (Dunkle Basis, Neon-Akzente) */
+  --primary: #00FFFF; /* Cyan/Aqua (Haupt-Neonfarbe) */
+  --accent: #39FF14; /* Neon-Grün */
+  --highlight: #FF1493; /* Leuchtendes Magenta */
+  --bg: #121212; /* Dunkles Anthrazit */
+  --text: #E0FFFF; /* Sehr helles Cyan/Weiß */
+  --card-bg: #1E1E1E; /* Dunkles Grau für Karten */
+  --glow: 0 0 15px rgba(0, 255, 255, 0.6); /* Cyan-Glow */
+  --shadow: 0 4px 15px rgba(0,0,0,0.5); /* Tiefer Schatten */
 }
 
 body {
@@ -22,100 +22,177 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ====== HERO ====== */
+/* ====== HERO (Behält den dynamischen Neon-Gradient) ====== */
 .hero {
   background: linear-gradient(120deg, var(--accent), var(--highlight), var(--primary));
   background-size: 300% 300%;
   animation: gradientShift 10s ease infinite;
-  color: white; 
+  color: var(--bg); /* Dunkler Text auf Neon-Hintergrund */
   padding: 100px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
   box-shadow: var(--glow);
 }
-/* ... (Rest der HERO-Styles bleibt gleich) ... */
 
-/* ====== CONTAINERS (FÜR FORMEN) ====== */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content img {
+  width: 170px;
+  border-radius: 50%;
+  border: 3px solid var(--primary); /* Cyan Rand */
+  box-shadow: 0 0 25px var(--primary); /* Stärkerer Cyan Glow */
+  transition: transform 0.4s ease;
+}
+.hero-content img:hover {
+  transform: scale(1.05);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin: 20px 0 10px;
+  font-weight: 700;
+}
+
+/* Text auf dem Header wird jetzt dunkel (besserer Kontrast zu Neon) */
+.hero p {
+  color: var(--bg);
+  font-size: 1.2rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content .subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--card-bg); /* Dunkelgrau auf Neon-Header */
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  margin-bottom: 5px;
+  opacity: 1; 
+}
+
+.hero-content p:last-of-type { 
+  font-size: 1rem;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+/* ====== CONTAINERS ====== */
 .container {
   max-width: 1000px;
   margin: 50px auto;
-  background: var(--card-bg); 
+  background: var(--card-bg); /* Dunkelgrauer Hintergrund */
   padding: 40px;
   border-radius: 12px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Dezenter Glow-Schatten */
   transition: transform 0.3s ease;
-  border-left: 5px solid var(--primary);
-  position: relative; /* Wichtig für die Positionierung der Formen */
-  overflow: hidden; /* Verhindert, dass Formen über den Rand ragen */
+  border-left: 5px solid var(--primary); /* Neon-Rand */
+  position: relative;
   z-index: 1; 
 }
-.container::before,
-.container::after {
-    content: "";
-    position: absolute;
-    opacity: 0.1;
-    z-index: 0; 
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4); /* Stärkerer Glow beim Hover */
+}
+h2 {
+    color: var(--primary); /* Überschriften in Neon-Cyan */
+    font-weight: 700;
 }
 
-/* --- SPEZIFISCHE FORMEN --- */
-
-/* 1. Formen für den ÜBER MICH Abschnitt (Kreis & Rechteck) */
-#about {
-    border-color: var(--primary);
+/* ====== BUTTONS ====== */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent), var(--primary)); /* Grün zu Cyan */
+  color: var(--bg); /* Dunkler Text auf hellem Button */
+  padding: 12px 25px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px var(--accent);
 }
-#about::before { /* Kreis */
-    top: -50px;
-    right: -50px;
-    width: 150px;
-    height: 150px;
-    background-color: var(--highlight);
-    border-radius: 50%;
-}
-#about::after { /* Rechteck */
-    bottom: 20px;
-    left: 20px;
-    width: 60px;
-    height: 120px;
-    background-color: var(--accent);
-    transform: rotate(30deg);
+.btn:hover {
+  box-shadow: 0 0 25px var(--primary); /* Cyan Glow beim Hover */
+  transform: scale(1.05);
 }
 
-/* 2. Formen für den PROJEKTE Abschnitt (Dreiecke) */
-.projects-section { /* Muss in HTML hinzugefügt werden */
-    border-color: var(--highlight);
+/* ====== PROJECTS ====== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
-.projects-section::before { /* Dreieck oben links */
-    top: -50px;
-    left: -50px;
-    width: 0;
-    height: 0;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 150px solid var(--primary);
-    transform: rotate(-10deg);
+.card {
+  background: #252525; /* Noch dunkler als der Container */
+  border-radius: 12px;
+  padding: 25px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 255, 255, 0.1);
 }
-.projects-section::after { /* Dreieck unten rechts */
-    bottom: -30px;
-    right: -30px;
-    width: 0;
-    height: 0;
-    border-left: 80px solid transparent;
-    border-right: 80px solid transparent;
-    border-top: 100px solid var(--accent);
-    transform: rotate(45deg);
+.card:hover {
+  transform: translateY(-5px);
+  background: #202020;
+  box-shadow: 0 0 20px var(--accent); /* Grüner Glow beim Hover */
+  border: 1px solid var(--accent); 
+}
+.card h3 {
+  color: var(--primary); 
+  font-weight: 600;
+  border-bottom: 2px solid var(--highlight); /* Magenta Akzent unter dem Titel */
+  padding-bottom: 5px;
+  margin-top: 0;
 }
 
-/* 3. Formen für den KONTAKT Abschnitt (Quadrate/Rhomben) */
-#contact-section { /* Muss in HTML hinzugefügt werden */
-    border-color: var(--accent);
+/* ====== LINKS ====== */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
 }
-#contact-section::before { /* Raute/Rhombus */
-    top: 50%;
-    left: -70px;
-    width: 80px;
-    height: 80px;
-    background-color: var(--primary);
-    transform: rotate(45deg);
+.links a {
+  background: linear-gradient(90deg, var(--highlight), var(--accent)); /* Magenta zu Grün */
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 20, 147, 0.4);
 }
-/* ... (Rest der Styles bleibt gleich) ... */
+.links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(57, 255, 20, 0.6); /* Grüner Glow beim Hover */
+}
+
+/* ====== FADE-IN EFFECT ====== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9em;
+  color: var(--primary); /* Fußzeile in Neon-Cyan */
+  background: #0D0D0D; /* Sehr dunkler Footer */
+  border-top: 5px solid var(--accent); /* Grüner Neon-Rand */
+}
+footer p {
+  margin: 0;
+  letter-spacing: 0.5px;
+}
