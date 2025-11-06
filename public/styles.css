@@ -8,14 +8,14 @@
 }
 
 body {
-  background: radial-gradient(circle at top left, #1b0b2a, #0a0014); /* dunkles Lila/Schwarz */
+  background: radial-gradient(circle at top left, #0a100a, #001100); /* dunkles Grün/Schwarz */
   color: #fff;
   overflow-x: hidden;
 }
 
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #2a0f3d, #0a0014);
+  background: linear-gradient(135deg, #001100, #003300);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -80,8 +80,8 @@ body {
 .btn {
   display: inline-block;
   margin-top: 2rem;
-  background: #00ff88;
-  color: #0a0014;
+  background: #004d00; /* Dunkelgrün */
+  color: #fff;
   padding: 0.8rem 2rem;
   border-radius: 40px;
   text-decoration: none;
@@ -90,7 +90,7 @@ body {
 }
 
 .btn:hover {
-  background: #00cc66;
+  background: #006600; /* helleres Grün */
   transform: scale(1.05);
 }
 
@@ -100,12 +100,12 @@ body {
 }
 
 .section.dark {
-  background: #1a001f;
+  background: #001100; /* Dunkles Grün */
 }
 
 .section h2 {
   font-size: 2.5rem;
-  color: #00ff88;
+  color: #00ff88; /* Neon-Grün */
   margin-bottom: 2rem;
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .project-card {
-  background: #2a0f3d;
+  background: #002200; /* Dunkles Grün */
   padding: 2rem;
   border-radius: 16px;
   transition: transform 0.3s;
@@ -124,7 +124,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-5px);
-  background: #3d1a55;
+  background: #003300; /* etwas heller beim Hover */
 }
 
 form {
@@ -147,7 +147,7 @@ textarea {
 }
 
 footer {
-  background: #0a0014;
+  background: #001100;
   text-align: center;
   padding: 1rem;
   color: #aaa;
