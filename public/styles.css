@@ -8,14 +8,14 @@
 }
 
 body {
-  background: radial-gradient(circle at top left, #0f051d, #0b0014);
+  background: radial-gradient(circle at top left, #1b0b2a, #0a0014); /* dunkles Lila/Schwarz */
   color: #fff;
   overflow-x: hidden;
 }
 
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #1a0033, #0a001a);
+  background: linear-gradient(135deg, #2a0f3d, #0a0014);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,7 +35,7 @@ body {
 }
 
 .logo span {
-  color: #004c00;
+  color: #00ff88; /* Neon-Grün Akzent */
 }
 
 .nav-links {
@@ -52,7 +52,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #004c00;
+  color: #00ff88;
 }
 
 .hero-content {
@@ -68,7 +68,7 @@ body {
 }
 
 .hero-content span {
-  color: #004c00;
+  color: #00ff88;
 }
 
 .hero-content p {
@@ -80,8 +80,8 @@ body {
 .btn {
   display: inline-block;
   margin-top: 2rem;
-  background: #004c00;
-  color: #fff;
+  background: #00ff88;
+  color: #0a0014;
   padding: 0.8rem 2rem;
   border-radius: 40px;
   text-decoration: none;
@@ -90,7 +90,7 @@ body {
 }
 
 .btn:hover {
-  background: #006600;
+  background: #00cc66;
   transform: scale(1.05);
 }
 
@@ -105,7 +105,7 @@ body {
 
 .section h2 {
   font-size: 2.5rem;
-  color: #004c00;
+  color: #00ff88;
   margin-bottom: 2rem;
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .project-card {
-  background: #250035;
+  background: #2a0f3d;
   padding: 2rem;
   border-radius: 16px;
   transition: transform 0.3s;
@@ -124,7 +124,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-5px);
-  background: #3a0055;
+  background: #3d1a55;
 }
 
 form {
@@ -150,6 +150,6 @@ footer {
   background: #0a0014;
   text-align: center;
   padding: 1rem;
-  color: #999;
+  color: #aaa;
   font-size: 0.9rem;
 }
