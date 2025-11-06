@@ -7,42 +7,69 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="container">
-    <h1>Ali Abukel</h1>
-    <p>Fachinformatiker für Anwendungsentwicklung | Java, Python, Linux, KI</p>
+  <header class="hero">
+    <div class="hero-content">
+      <img src="images/ali.jpg" alt="Ali Abukel" class="profile-pic">
+      <div>
+        <h1>Ali Abukel</h1>
+        <p>Fachinformatiker für Anwendungsentwicklung | Java • Python • Linux • KI</p>
+        <a href="#about" class="btn">Mehr über mich</a>
+      </div>
+    </div>
   </header>
 
-  <section class="container about">
+  <section id="about" class="container fade-in">
     <h2>Über mich</h2>
     <p>Ich bin Ali Abukel, Umschüler zum Fachinformatiker für Anwendungsentwicklung in Berlin. 
-       Zuvor arbeitete ich in der Ölindustrie und Stromerzeugung. 
-       Ich interessiere mich für Softwareentwicklung, KI und barrierefreie Apps.</p>
-    <img src="images/ali.jpg" alt="Ali Abukel" class="profile-pic">
+    Zuvor arbeitete ich in der Ölindustrie und Stromerzeugung. 
+    Heute entwickle ich Software, KI-Lösungen und barrierefreie Apps, die Menschen helfen.</p>
   </section>
 
-  <section class="container work">
-    <h2>Meine Projekte & Erfahrung</h2>
-    <ul class="list">
-      <li>Java- und Python-Softwareentwicklung</li>
-      <li>Linux & Netzwerksicherheit</li>
-      <li>App-Projekt „Dinner“ – Planung von Dinner-Events inkl. KI-Menüplanung</li>
-      <li>Barrierefreie Sprach-Assistenten für Blinde</li>
-    </ul>
+  <section class="container fade-in">
+    <h2>Meine Projekte</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Projekt „Dinner“</h3>
+        <p>KI-gestützte App zur Planung von Dinner-Events für Gruppen mit Menüvorschlägen und Zeitplan.</p>
+      </div>
+      <div class="card">
+        <h3>Sprach-Assistent für Blinde</h3>
+        <p>Ein barrierefreies Tool, das gesprochene Briefe aufnimmt, aufschreibt und vorliest.</p>
+      </div>
+      <div class="card">
+        <h3>Netzwerksicherheit & Linux</h3>
+        <p>Erfahrung mit Serverhärtung, Shell-Scripting und Open-Source-Sicherheitstools.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="container links">
-    <h2>Meine Links</h2>
-    <ul class="list">
+  <section class="container fade-in">
+    <h2>Links</h2>
+    <ul class="links">
       <li><a href="https://github.com/aliabukel" target="_blank">GitHub</a></li>
       <li><a href="https://gitlab.com/aliabukel" target="_blank">GitLab</a></li>
       <li><a href="https://www.linkedin.com/in/aliabukel" target="_blank">LinkedIn</a></li>
-      <li><a href="mailto:aliabukel@icloud.com">E-Mail schreiben</a></li>
+      <li><a href="mailto:aliabukel@icloud.com">E-Mail</a></li>
       <li><a href="admin.html">Kontaktformular</a></li>
     </ul>
   </section>
 
-  <footer class="container">
+  <footer>
     <p>&copy; 2025 Ali Abukel – Alle Rechte vorbehalten</p>
   </footer>
+
+  <script>
+    // sanfte Fade-in-Animation beim Scrollen
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
