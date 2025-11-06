@@ -52,7 +52,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff0099;
+  color: #004c00;
 }
 
 .hero-content {
@@ -68,7 +68,7 @@ body {
 }
 
 .hero-content span {
-  color: #ff0099;
+  color: #004c00;
 }
 
 .hero-content p {
@@ -80,7 +80,7 @@ body {
 .btn {
   display: inline-block;
   margin-top: 2rem;
-  background: #ff0099;
+  background: #004c00;
   color: #fff;
   padding: 0.8rem 2rem;
   border-radius: 40px;
@@ -90,7 +90,7 @@ body {
 }
 
 .btn:hover {
-  background: #ff33aa;
+  background: #006600;
   transform: scale(1.05);
 }
 
@@ -105,7 +105,7 @@ body {
 
 .section h2 {
   font-size: 2.5rem;
-  color: #ff0099;
+  color: #004c00;
   margin-bottom: 2rem;
 }
 
