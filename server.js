@@ -1,4 +1,5 @@
-require('dotenv').config();
+require('dotenv').config(); // unbedingt ganz oben
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -12,24 +13,21 @@ app.use(express.urlencoded({ extended: true }));
 // Statische Dateien aus /public bereitstellen
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // ----------------------------------------------------------------
-// **ROBUSTE PRÜFUNG DER SMTP-VARIABLEN (FEHLERVERMEIDUNG 502)**
+// **ROBUSTE PRÜFUNG DER SMTP-VARIABLEN**
 // ----------------------------------------------------------------
-const requiredEnvVars = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'];
-requiredEnvVars.forEach(key => {
+['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'].forEach(key => {
     if (!process.env[key]) {
         console.error(`ERROR: Kritische Umgebungsvariable fehlt: ${key}. Bitte in Render/Env-File setzen!`);
     }
 });
-
 
 // SMTP transporter
 const smtpPort = Number(process.env.SMTP_PORT) || 587;
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: smtpPort,
-  secure: smtpPort === 465, // True, wenn Port 465 (SSL)
+  secure: smtpPort === 465,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
@@ -46,7 +44,7 @@ app.post('/send', async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
     if (!email || !message) return res.status(400).json({ error: 'Fehlende Felder' });
-    if (!process.env.MAIL_TO || !process.env.SMTP_USER) return res.status(500).json({ error: 'Server nicht konfiguriert (MAIL_TO/SMTP_USER fehlt).' });
+    if (!process.env.MAIL_TO || !process.env.SMTP_USER) return res.status(500).json({ error: 'Server nicht konfiguriert.' });
 
     const mailOptions = {
       from: `"Kontaktformular" <${process.env.SMTP_USER}>`,
@@ -61,16 +59,14 @@ app.post('/send', async (req, res) => {
     res.json({ ok: true, messageId: info.messageId });
   } catch (err) {
     console.error('Mailfehler:', err.message || err); 
-    res.status(500).json({ error: 'Fehler beim Versenden der Mail. (SMTP-Problem?)' });
+    res.status(500).json({ error: 'Fehler beim Versenden der Mail.' });
   }
 });
 
-
 // ----------------------------------------------------------------
-// ✅ START DER ANWENDUNG (Fix für Render 502 Bad Gateway)
+// ✅ START DER ANWENDUNG
 // ----------------------------------------------------------------
 const port = process.env.PORT || 10000; 
-
 app.listen(port, '0.0.0.0', () => { 
   console.log(`Server läuft auf Host 0.0.0.0 und Port ${port}`);
 });
