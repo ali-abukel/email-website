@@ -8,14 +8,14 @@
 }
 
 body {
-  background: radial-gradient(circle at top left, #0a100a, #001100); /* dunkles Grün/Schwarz */
+  background: radial-gradient(circle at top left, #4B3D75, #4B3D75); /* tiefes Violett */
   color: #fff;
   overflow-x: hidden;
 }
 
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #001100, #003300);
+  background: linear-gradient(135deg, #4B3D75, #A24C78);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,7 +35,7 @@ body {
 }
 
 .logo span {
-  color: #00ff88; /* Neon-Grün Akzent */
+  color: #D6C26A; /* gold Akzent */
 }
 
 .nav-links {
@@ -52,7 +52,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #00ff88;
+  color: #D6C26A;
 }
 
 .hero-content {
@@ -68,20 +68,20 @@ body {
 }
 
 .hero-content span {
-  color: #00ff88;
+  color: #D6C26A;
 }
 
 .hero-content p {
   margin-top: 1rem;
   font-size: 1.2rem;
-  color: #ccc;
+  color: #fff;
 }
 
 .btn {
   display: inline-block;
   margin-top: 2rem;
-  background: #004d00; /* Dunkelgrün */
-  color: #fff;
+  background: #D6C26A; /* Gold */
+  color: #4B3D75; /* Text auf Buttons dunkel */
   padding: 0.8rem 2rem;
   border-radius: 40px;
   text-decoration: none;
@@ -90,7 +90,8 @@ body {
 }
 
 .btn:hover {
-  background: #006600; /* helleres Grün */
+  background: #A24C78; /* Magenta */
+  color: #fff;
   transform: scale(1.05);
 }
 
@@ -100,12 +101,12 @@ body {
 }
 
 .section.dark {
-  background: #001100; /* Dunkles Grün */
+  background: #A24C78; /* Magenta Sektion */
 }
 
 .section h2 {
   font-size: 2.5rem;
-  color: #00ff88; /* Neon-Grün */
+  color: #D6C26A; /* Gold Akzent */
   margin-bottom: 2rem;
 }
 
@@ -116,7 +117,7 @@ body {
 }
 
 .project-card {
-  background: #002200; /* Dunkles Grün */
+  background: #4B3D75; /* tiefes Violett */
   padding: 2rem;
   border-radius: 16px;
   transition: transform 0.3s;
@@ -124,7 +125,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-5px);
-  background: #003300; /* etwas heller beim Hover */
+  background: #A24C78; /* Magenta */
 }
 
 form {
@@ -147,9 +148,9 @@ textarea {
 }
 
 footer {
-  background: #001100;
+  background: #4B3D75;
   text-align: center;
   padding: 1rem;
-  color: #aaa;
+  color: #D6C26A;
   font-size: 0.9rem;
 }
