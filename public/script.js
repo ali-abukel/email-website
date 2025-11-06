@@ -11,7 +11,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
   };
 
   responseText.textContent = "Sende Nachricht...";
-  responseText.style.color = "#004c00";
+  responseText.style.color = "#31403d";
 
   try {
     const res = await fetch("/send", {
@@ -23,14 +23,14 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     const result = await res.json();
     if (result.ok) {
       responseText.textContent = "✅ Nachricht erfolgreich gesendet!";
-      responseText.style.color = "#4cff4c";
+      responseText.style.color = "#31403d";
       form.reset();
     } else {
       responseText.textContent = "❌ Fehler beim Senden.";
-      responseText.style.color = "#004c00";
+      responseText.style.color = "#31403d";
     }
   } catch (err) {
     responseText.textContent = "⚠️ Netzwerk- oder Serverfehler.";
-    responseText.style.color = "#004c00";
+    responseText.style.color = "#31403d";
   }
 });
