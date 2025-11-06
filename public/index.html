@@ -1,78 +1,67 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Abukel – Umschüler Anwendungsentwicklung | Java & KI</title>
-  <link rel="stylesheet" href="styles.css?v=2">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abukel | Modern Web</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="hero">
+    <nav class="navbar">
+      <div class="logo">ABUKEL<span>.COM</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
     <div class="hero-content">
-      <img src="images/ali.jpg" alt="Ali Abukel" class="profile-pic">
-      <div>
-        <h1>Ali Abukel</h1>
-        <p class="subtitle">Umschüler Fachinformatiker für Anwendungsentwicklung | **Bewerbung Praktikum**</p>
-        <p>Expertise: Java, Python, REST-APIs, Linux, Cloud-Deployment (Render)</p>
-        <a href="#about" class="btn">Meine Qualifikation</a>
-      </div>
+      <h1>MODERN <span>WEB DESIGN</span></h1>
+      <p>Kreative Lösungen. Technisch stark. Stilvoll umgesetzt.</p>
+      <a href="#contact" class="btn">Kontakt aufnehmen</a>
     </div>
   </header>
 
-  <section id="about" class="container fade-in">
-    <h2>🎯 Über mich: Vom Ingenieur zum Entwickler</h2>
-    <p>Ich bin Ali Abukel, Umschüler zum Fachinformatiker für Anwendungsentwicklung in Berlin. Meine vorherige Laufbahn in der Ölindustrie und Stromerzeugung hat mir **strukturierte Arbeitsweise, Verantwortungsbewusstsein und Prozessoptimierung** gelehrt – Fähigkeiten, die ich nun in die Softwareentwicklung einbringe.</p>
-    <p>Mein Fokus liegt auf der Entwicklung **effizienter, skalierbarer und barrierefreier Software**, primär mit **Java** und **Python**. Dieses Portfolio ist ein Beweis für meine Fähigkeit, Full-Stack-Anwendungen (Node.js/Express Backend, Cloud-Hosting) von Grund auf zu konzipieren und zu deployen.</p>
+  <section id="about" class="section">
+    <h2>Über mich</h2>
+    <p>Ich bin <strong>Ali Abukel</strong> – Fachinformatiker für Anwendungsentwicklung aus Berlin. 
+       Ich entwickle moderne Weblösungen, Apps und intelligente Systeme mit KI-Integration.</p>
   </section>
 
-  <section class="container fade-in projects-section">
-    <h2>💡 Bewiesene Programmierfähigkeiten (Projekte)</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Backend-Entwicklung & APIs</h3>
-        <p>Dieses Kontaktformular (server.js) demonstriert die Entwicklung eines **robusten Node.js/Express Backends** inkl. **REST-API** für E-Mail-Versand (Nodemailer) und **professionelles Cloud-Deployment** (Render-Optimierung).</p>
+  <section id="projects" class="section dark">
+    <h2>Projekte</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>AI Brief App</h3>
+        <p>Barrierefreie Sprach-App für Blinde. Briefe diktieren, lesen und verwalten – alles per Sprache.</p>
       </div>
-      <div class="card">
-        <h3>Sprach-Assistent (Barrierefreiheit)</h3>
-        <p>Ein **barrierefreies Tool** zur sprachgesteuerten Erfassung und Ausgabe von Texten. Zeigt meine Expertise in der Entwicklung von **inklusiven** und **nutzerzentrierten** Anwendungen.</p>
+      <div class="project-card">
+        <h3>Dinner Planner</h3>
+        <p>KI-gestützte App zur Menüplanung, Einkaufsliste & Deko-Ideen – ganz einfach für Dinner-Events.</p>
       </div>
-      <div class="card">
-        <h3>KI-Lösung "Dinner"</h3>
-        <p>Eine **KI-gestützte** App zur Event-Planung. Beweis für meine **zukunftsorientierte Denkweise** und Kenntnisse in Machine Learning / **Python**-Bibliotheken.</p>
-      </div>
-      <div class="card">
-        <h3>Server & Linux (DevOps-Grundlagen)</h3>
-        <p>Fundierte Kenntnisse in **Linux-Administration**, **Netzwerksicherheit**, Containerisierung und **Shell-Scripting** zur Automatisierung von Deployment-Prozessen.</p>
+      <div class="project-card">
+        <h3>Modern Portfolio</h3>
+        <p>Mein persönliches Portfolio mit Node.js-Backend, SMTP-Mail und Render Deployment.</p>
       </div>
     </div>
   </section>
 
-  <section class="container fade-in" id="contact-section">
-    <h2>✉️ Kontakt & Praktikumsanfrage</h2>
-    <p>Ich suche ein Praktikum, um meine theoretischen und praktischen Kenntnisse in einem professionellen Umfeld zu vertiefen. Meine Kombination aus technischer Erfahrung und neu erworbenen Entwicklungskompetenzen macht mich zu einem **schnell einsetzbaren und zuverlässigen Praktikanten**.</p>
-    <ul class="links">
-      <li><a href="https://github.com/aliabukel" target="_blank">GitHub (Code-Beispiele)</a></li>
-      <li><a href="https://www.linkedin.com/in/aliabukel" target="_blank">LinkedIn (Berufsweg)</a></li>
-      <li><a href="mailto:aliabukel@icloud.com">Direkte E-Mail</a></li>
-      <li><a href="admin.html">Zum Kontaktformular (Backend-Test)</a></li>
-    </ul>
+  <section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="E-Mail" required />
+      <input type="text" name="subject" placeholder="Betreff" />
+      <textarea name="message" placeholder="Nachricht..." required></textarea>
+      <button type="submit" class="btn">Nachricht senden</button>
+      <p id="response"></p>
+    </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Ali Abukel – Entwickelt mit **Node.js, Express & Vanilla Frontend**</p>
+    <p>© 2025 Abukel.com | Entwickelt mit ❤️ von Ali Abukel</p>
   </footer>
-
-  <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1 };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
 </body>
 </html>
