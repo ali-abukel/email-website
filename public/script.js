@@ -27,10 +27,10 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
       form.reset();
     } else {
       responseText.textContent = "❌ Fehler beim Senden.";
-      responseText.style.color = "#ff3333";
+      responseText.style.color = "#004c00";
     }
   } catch (err) {
     responseText.textContent = "⚠️ Netzwerk- oder Serverfehler.";
-    responseText.style.color = "#ff3333";
+    responseText.style.color = "#004c00";
   }
 });
