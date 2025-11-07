@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Ali Abukel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark">
+  <section class="section">
+    <h2>Adminbereich</h2>
+    <p>Willkommen, Administrator!</p>
+
+    <div class="admin-box">
+      <button id="check-mails" class="btn">Letzte Nachrichten prüfen</button>
+      <div id="output" style="margin-top:1rem;"></div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('check-mails').addEventListener('click', async () => {
+      const out = document.getElementById('output');
+      out.textContent = "⏳ Lade Daten...";
+      try {
+        const res = await fetch('/admin/messages');
+        const data = await res.json();
+        if (!data.length) {
+          out.textContent = "Keine Nachrichten gefunden.";
+        } else {
+          out.innerHTML = "<ul>" + data.map(m => 
+            `<li><strong>${m.name}</strong> (${m.email}): ${m.message}</li>`).join('') + "</ul>";
+        }
+      } catch (err) {
+        out.textContent = "Fehler beim Abrufen.";
+      }
+    });
+  </script>
+</body>
+</html>
