@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Abukel – Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">Ali<span>Abukel</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#skills">Fähigkeiten</a></li>
+        <li><a href="#projects">Projekte</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h1>Hi, mein Name ist <span>Ali Abukel</span></h1>
+      <p>Fachinformatiker für Anwendungsentwicklung & KI-Enthusiast</p>
+      <a href="#contact" class="btn">Kontaktiere mich</a>
+    </div>
+  </header>
+
+  <section id="about" class="section light">
+    <h2>Über mich</h2>
+    <div class="about-content">
+      <img src="images/profil.jpg" alt="Ali Abukel Profil" class="profile-pic" />
+      <p>
+        Hallo! Ich bin Ali Abukel aus Berlin – angehender Fachinformatiker für
+        Anwendungsentwicklung. Ich liebe es, moderne Web-Apps, KI-Tools und
+        barrierefreie Lösungen zu entwickeln. Mein Ziel ist es, Technologie
+        zugänglich und nützlich für alle zu machen.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills" class="section dark">
+    <h2>Meine Fähigkeiten</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>💻 Web Development</h3>
+        <p>HTML, CSS, JavaScript, Node.js, Express</p>
+      </div>
+      <div class="skill-card">
+        <h3>☕ Java</h3>
+        <p>OOP, GUI, SQL-Integration, Projektdesign</p>
+      </div>
+      <div class="skill-card">
+        <h3>🐍 Python</h3>
+        <p>KI, Automatisierung, Data Science</p>
+      </div>
+      <div class="skill-card">
+        <h3>🐧 Linux</h3>
+        <p>Shell-Scripting, Netzwerk, Security</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section light">
+    <h2>Projekte</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Dinner App</h3>
+        <p>KI-basierte Dinner-Planungs-App mit Java, SQL & Spotify-API</p>
+      </div>
+      <div class="project-card">
+        <h3>VoiceLetter</h3>
+        <p>Barrierefreie Brief-App für Blinde – Diktieren, Schreiben, Vorlesen</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section dark">
+    <h2>Kontakt</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Dein Name" required />
+      <input type="email" name="email" placeholder="Deine E-Mail" required />
+      <input type="text" name="subject" placeholder="Betreff" />
+      <textarea name="message" placeholder="Nachricht" required></textarea>
+      <button type="submit" class="btn">Senden</button>
+      <p id="response"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Ali Abukel – Made with 💻 & ☕</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
