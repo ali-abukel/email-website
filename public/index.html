@@ -1,67 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abukel | Modern Web</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jonk - Portfolio Vorlage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">ABUKEL<span>.COM</span></div>
-      <ul class="nav-links">
-        <li><a href="#about">Über mich</a></li>
-        <li><a href="#projects">Projekte</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
-    <div class="hero-content">
-      <h1><span>Ali Abukel</span></h1>
-      <p>UMSCHULER. Technisch stark. Hartnäkig.</p>
-      <a href="#contact" class="btn">Kontakt aufnehmen</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="#"><span class="logo-script">Jonk</span></a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li><a href="#welcome">Welcome</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <section id="about" class="section">
-    <h2>Über mich</h2>
-    <p>Ich bin <strong>Ali Abukel</strong> – Fachinformatiker für Anwendungsentwicklung aus Berlin. 
-       Ich entwickle moderne Weblösungen, Apps und intelligente Systeme mit KI-Integration.</p>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section id="welcome" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Hi, my name is <span class="accent">Jonk</span></h1>
+          <p class="lead">Professional User Experience Designer</p>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
 
-  <section id="projects" class="section dark">
-    <h2>Projekte</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Gelernte programmierte Sprachen</h3>
-        <p>JAVA. JAVASCRIPT. HTML. SQL. OS(LINUX). CSS </p>
+        <div class="hero-right">
+          <!-- Platzhalter-Bild, später ersetzen -->
+          <div class="hero-image" aria-hidden="true">
+            <img src="images/hero.jpg" alt="Hero image (replace me)" />
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Projekte</h3>
-        <p>DINNER APP KI-gestützte App zur Menüplanung, Einkaufsliste & Deko-Ideen – ganz einfach für Dinner-Events.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container grid two-col">
+        <div class="about-text">
+          <h2>About <span class="accent">Me</span></h2>
+          <p>Hi! I’m Jonk — a UX designer focused on creating clean user experiences and strong visual design. Replace this text with your own about section.</p>
+          <p class="soft">I combine research, interaction design and visual design to craft interfaces that are both beautiful and usable.</p>
+
+          <div class="cta-row">
+            <a class="btn outline" href="#">Download CV</a>
+            <a class="btn" href="#projects">My Work</a>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <img src="images/avatar.jpg" alt="Avatar (replace me)" class="avatar" />
+          <div class="card-body">
+            <h3>John Doe</h3>
+            <p class="muted">User Experience Designer</p>
+            <p class="small">Short intro line about skills, background and where you're located.</p>
+            <div class="socials">
+              <a href="#" aria-label="Twitter">T</a>
+              <a href="#" aria-label="Dribbble">D</a>
+              <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Mein Erfahrung </h3>
-        <p>Mein persönliches Ich habe als Elektricker gearabeitet , die Deutsch Sprache bis C2 Nivuea .</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section dark">
+      <div class="container">
+        <h2>Knowledge & <span class="accent">Skills</span></h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JavaScript, Responsive Design</p>
+          </div>
+          <div class="project-card">
+            <h3>UI / UX Design</h3>
+            <p>Wireframes, Prototyping, Testing</p>
+          </div>
+          <div class="project-card">
+            <h3>App Development</h3>
+            <p>Design handoff, Mobile UI patterns</p>
+          </div>
+          <div class="project-card">
+            <h3>Photography</h3>
+            <p>Visual storytelling & composition</p>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- PROJECTS / WORK -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected <span class="accent">Work</span></h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-thumb" style="background-image:url('images/project1.jpg')"></div>
+            <h4>Project One</h4>
+            <p class="muted">Short description of the project</p>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb" style="background-image:url('images/project2.jpg')"></div>
+            <h4>Project Two</h4>
+            <p class="muted">Short description of the project</p>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb" style="background-image:url('images/project3.jpg')"></div>
+            <h4>Project Three</h4>
+            <p class="muted">Short description of the project</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section dark contact-section">
+      <div class="container two-col">
+        <div class="contact-left">
+          <h2>Get in <span class="accent">Touch</span></h2>
+          <p>If you want to work together or just say hi — send a message.</p>
+
+          <ul class="contact-info">
+            <li><strong>Email:</strong> hello@abukel.com</li>
+            <li><strong>Location:</strong> Berlin, Germany</li>
+          </ul>
+        </div>
+
+        <div class="contact-right">
+          <form id="contact-form" class="contact-form" autocomplete="off">
+            <label>
+              <input type="text" name="name" placeholder="Your name" />
+            </label>
+            <label>
+              <input type="email" name="email" placeholder="Your email" required />
+            </label>
+            <label>
+              <input type="text" name="subject" placeholder="Subject" />
+            </label>
+            <label>
+              <textarea name="message" placeholder="Your message" required></textarea>
+            </label>
+
+            <div class="form-row">
+              <button type="submit" class="btn">Send Message</button>
+              <span id="response" class="response" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Jonk — Resume Template</p>
     </div>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Kontakt</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="E-Mail" required />
-      <input type="text" name="subject" placeholder="Betreff" />
-      <textarea name="message" placeholder="Nachricht..." required></textarea>
-      <button type="submit" class="btn">Nachricht senden</button>
-      <p id="response"></p>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Abukel.com | Entwickelt mit ❤️ von Ali Abukel</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
